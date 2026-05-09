@@ -1,4 +1,4 @@
-declare module "gsap-trial/SplitText" {
+declare module "gsap/SplitText" {
   import type { DOMTarget } from "gsap";
 
   export interface SplitTextVars {
