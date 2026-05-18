@@ -15,8 +15,8 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>FREELANCER</h4>
+                <h5>RAGHAVENDRA SOLUTIONS</h5>
               </div>
               <h3>20XX</h3>
             </div>
@@ -29,10 +29,10 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>SALES HEAD</h4>
+                <h5>MAIRA HOLIDAYS PRIVATE LIMITED</h5>
               </div>
-              <h3>20XX</h3>
+              <h3>2025</h3>
             </div>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
@@ -43,8 +43,8 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>DEVELOPER</h4>
+                <h5>LUXURY TRIP INDIA</h5>
               </div>
               <h3>NOW</h3>
             </div>
