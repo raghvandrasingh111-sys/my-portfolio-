@@ -18,6 +18,31 @@ const coreTechs = [
   "Docker",
 ];
 
+const strengths = [
+  {
+    area: "Web development",
+    details: "React.js, Next.js, TypeScript, Express.js, HTML, CSS, and SEO.",
+  },
+  {
+    area: "Mobile development",
+    details: "Flutter and Dart, with clean Material Design 3 interfaces.",
+  },
+  {
+    area: "Backend and infrastructure",
+    details: "Supabase, PostgreSQL, REST APIs, Docker, Git, and Vercel.",
+  },
+  {
+    area: "AI and machine learning",
+    details:
+      "Python, model training, data preprocessing, generative AI, and AI-driven product features.",
+  },
+  {
+    area: "Product and design",
+    details:
+      "UI/UX design, project management, and end-to-end ownership from requirements to delivery.",
+  },
+];
+
 const stats = [
   { label: "National Hackathons", value: 3, suffix: "" },
   { label: "Patent-Pending App", value: 1, suffix: "" },
@@ -75,7 +100,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           title="About Me"
-          subtitle="B.Tech IT student and full-stack developer building useful products for real people."
+          subtitle="Full-stack developer and product builder based in Chandigarh, India."
         />
 
         <motion.div
@@ -127,11 +152,83 @@ export default function About() {
               </h3>
 
               <p className="text-text-secondary text-base leading-relaxed">
-                I&apos;m a B.Tech Information Technology student at Chandigarh University and a full-stack developer. I&apos;ve shipped live business websites, built freelance client projects, and developed AyuNetra, a patent-pending AI medical app.
+                I&apos;m Raghavendra Singh, Co-Founder of{" "}
+                <a
+                  href="https://inheriq.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-cyan hover:text-accent-primary transition-colors"
+                >
+                  Inheriq.in
+                </a>
+                , a full-stack developer and product builder based in
+                Chandigarh, India.
               </p>
 
               <p className="text-text-secondary text-base leading-relaxed">
-                I work across React, Next.js, TypeScript, Flutter, Supabase, and Python ML. As co-founder and CTO of Inheriq, I&apos;m building a SaaS platform of specialised AI agents for business tasks. I&apos;m seeking a software development internship to build impactful products.
+                At Inheriq, I own the technical side of the business: product
+                architecture, development, deployment, and the AI capabilities
+                behind what we build. I move from idea to a live product
+                quickly, and care about shipping things people actually use.
+              </p>
+
+              <div className="pt-1">
+                <h4 className="text-base font-semibold text-text-primary mb-3">
+                  What I bring to the table
+                </h4>
+                <ul className="space-y-2.5">
+                  {strengths.map(({ area, details }) => (
+                    <li
+                      key={area}
+                      className="text-sm text-text-secondary leading-relaxed"
+                    >
+                      <span className="font-semibold text-text-primary">
+                        {area}:
+                      </span>{" "}
+                      {details}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-1">
+                <h4 className="text-base font-semibold text-text-primary mb-2">
+                  Track record
+                </h4>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  Before and alongside Inheriq, I built and deployed
+                  ramkashiyatra.com, a lead-generating travel website for
+                  Luxury Trip India. I also delivered a coaching institute
+                  website and am building Benam, a premium e-commerce
+                  marketplace. I created AyuNetra, a patent-pending Flutter
+                  app that uses a custom AI model to read prescriptions and
+                  brief patients, and I&apos;m designing WorkForce AI, a
+                  platform of AI agents that understand regional Indian
+                  languages and Hindi-English code-switching. I&apos;ve also
+                  competed in national hackathons, including IIT Goa&apos;s
+                  Hack Overflow and Build for Bharat 2026.
+                </p>
+              </div>
+
+              <p className="text-text-secondary text-sm leading-relaxed">
+                I&apos;m open to collaborations, partnerships, and select
+                freelance projects. Reach me at{" "}
+                <a
+                  href="mailto:raghvandrasingh111@gmail.com"
+                  className="text-accent-cyan hover:text-accent-primary transition-colors"
+                >
+                  raghvandrasingh111@gmail.com
+                </a>{" "}
+                or on{" "}
+                <a
+                  href="https://www.linkedin.com/in/raghavendra-singh-inheriq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-accent-cyan hover:text-accent-primary transition-colors"
+                >
+                  LinkedIn
+                </a>
+                .
               </p>
 
               {/* Technologies list */}

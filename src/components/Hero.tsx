@@ -75,7 +75,18 @@ export default function Hero() {
               variants={fadeUp}
               className="text-text-secondary text-base sm:text-lg leading-relaxed max-w-2xl"
             >
-              I&apos;m a B.Tech IT student and full-stack developer who builds real products end to end—from live business websites to a patent-pending AI medical app. I&apos;m currently co-founder and CTO of <span className="text-accent-primary font-semibold">Inheriq</span>, and I&apos;m seeking a software development internship.
+              I&apos;m Raghavendra Singh, Co-Founder of{" "}
+              <a
+                href="https://inheriq.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent-primary font-semibold hover:text-accent-cyan transition-colors"
+              >
+                Inheriq.in
+              </a>
+              . I lead product and engineering, building full-stack web and
+              mobile products with React, Next.js, TypeScript, Flutter,
+              Supabase, and Python-based AI/ML.
             </motion.p>
 
             {/* Floating Tech Stack Badges */}
