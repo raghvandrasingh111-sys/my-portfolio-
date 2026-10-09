@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
 import ProjectCard from "./ProjectCard";
 import { projects } from "@/data/projects";
-import { fadeUp, staggerContainer } from "@/lib/animations";
+import { fadeUp } from "@/lib/animations";
 
 const categories = ["All", "AI SaaS", "Web", "Mobile"];
 
@@ -54,27 +54,32 @@ export default function ProjectGrid() {
         </motion.div>
 
         {/* Projects Grid */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          className="grid md:grid-cols-2 gap-6"
-        >
+        <div className="grid md:grid-cols-2 gap-6">
           {/* Featured project full width */}
           {featuredProject && (
-            <motion.div variants={fadeUp} className="md:col-span-2">
+            <motion.div
+              key={featuredProject.id}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              className="md:col-span-2"
+            >
               <ProjectCard project={featuredProject} featured />
             </motion.div>
           )}
 
           {/* Other projects */}
           {otherProjects.map((project) => (
-            <motion.div key={project.id} variants={fadeUp}>
+            <motion.div
+              key={project.id}
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+            >
               <ProjectCard project={project} />
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
