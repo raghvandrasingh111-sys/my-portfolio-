@@ -56,7 +56,7 @@ export const projects: Project[] = [
     featured: true,
     github: "https://github.com/raghvandrasingh111-sys/inheriq-demo",
     live: "https://www.inheriq.in",
-    image: "/inheriq-dashboard.png",
+    image: "/inheriq-dashboard.webp",
     caseStudy: {
       overview:
         "Inheriq is a subscription platform for specialised AI agents across HR, Sales, Marketing, Support, and Finance. As co-founder and CTO, I help lead its technical development.",
@@ -131,7 +131,7 @@ export const projects: Project[] = [
     outcome: "Client marketplace in development, deployed on Vercel.",
     featured: false,
     live: "https://benam.vercel.app",
-    image: "/benam-screenshot.jpg",
+    image: "/benam-screenshot.webp",
     caseStudy: {
       overview:
         "Benam is a premium e-commerce marketplace for handmade, cultural, and luxury products. It is being developed as a freelance client project and is available on Vercel.",
@@ -165,7 +165,7 @@ export const projects: Project[] = [
     featured: false,
     github: "https://github.com/raghvandrasingh111-sys/Ramkashiyatra.com",
     live: "https://www.ramkashiyatra.com",
-    image: "/ram-kashi-yatra-screenshot.jpg",
+    image: "/ram-kashi-yatra-screenshot.webp",
     caseStudy: {
       overview:
         "Ram Kashi Yatra is a live travel website built and deployed end to end for Luxury Trip India. The site supports travel discovery and enquiry-led lead generation.",
@@ -198,7 +198,7 @@ export const projects: Project[] = [
     outcome: "Freelance coaching institute website.",
     featured: false,
     live: "https://www.ritaviclasses.in/",
-    image: "/ritavi-classes-screenshot.jpg",
+    image: "/ritavi-classes-screenshot.webp",
     caseStudy: {
       overview:
         "Ritavi Classes is a freelance coaching institute website. It presents the institute's courses, faculty information, and ways for prospective students to make enquiries.",

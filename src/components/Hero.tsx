@@ -160,10 +160,11 @@ export default function Hero() {
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-tr from-accent-primary/35 via-accent-secondary/20 to-accent-cyan/35 blur-2xl pointer-events-none" />
               <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] border border-glass-border bg-white shadow-2xl">
                 <Image
-                  src="/raghavendra-singh.png"
+                  src="/raghavendra-singh.webp"
                   alt="Portrait of Raghavendra Singh"
                   fill
                   priority
+                  unoptimized
                   sizes="(max-width: 1024px) 80vw, 400px"
                   className="object-cover object-top"
                 />

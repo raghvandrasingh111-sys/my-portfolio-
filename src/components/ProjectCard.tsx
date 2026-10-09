@@ -37,6 +37,7 @@ export default function ProjectCard({
                 src={project.image}
                 alt={`${project.title} Dashboard Preview`}
                 fill
+                unoptimized
                 sizes="(max-width: 1024px) 100vw, 55vw"
                 className="object-cover object-top group-hover/img:scale-105 transition-transform duration-700"
               />
@@ -187,6 +188,7 @@ export default function ProjectCard({
                 src={project.image}
                 alt={project.title}
                 fill
+                unoptimized
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
