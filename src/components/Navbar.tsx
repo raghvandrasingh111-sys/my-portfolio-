@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const sectionLinks = [
   { name: "Home", href: "#home" },
@@ -106,16 +107,19 @@ export default function Navbar() {
                 e.preventDefault();
                 handleNavClick("#home");
               }}
-              className="text-lg sm:text-xl font-bold tracking-tight text-text-primary flex items-center gap-2 group"
+              aria-label="Raghavendra Singh — Home"
+              className="flex items-center"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-primary to-accent-cyan flex items-center justify-center text-white font-mono text-sm font-bold shadow-md shadow-accent-primary/20">
-                RS
-              </div>
-              <span className="font-semibold text-text-primary group-hover:text-accent-primary transition-colors">
-                Raghavendra <span className="gradient-text">Singh</span>
-              </span>
+              <Image
+                src="/raghavendra-singh-logo.svg"
+                alt="Raghavendra Singh — Full-Stack, Flutter, AI/ML"
+                width={210}
+                height={44}
+                priority
+                className="h-12 w-auto sm:h-14"
+              />
             </motion.a>
 
             {/* Desktop Navigation */}

@@ -1,10 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { GithubIcon } from "./icons";
 import SectionHeading from "./SectionHeading";
+import ContributionGraph from "./ContributionGraph";
 import { fadeUp, staggerContainer } from "@/lib/animations";
 
 const repositories = [
@@ -46,7 +46,7 @@ export default function GitHubStats() {
               <div>
                 <h3 className="font-semibold text-text-primary">Contribution Activity</h3>
                 <p className="text-sm text-text-secondary mt-1">
-                  GitHub contributions over the past year
+                  GitHub contributions since the start of this year
                 </p>
               </div>
               <a
@@ -59,16 +59,7 @@ export default function GitHubStats() {
                 <ExternalLink size={14} />
               </a>
             </div>
-            <div className="overflow-x-auto">
-              <Image
-                src="https://ghchart.rshah.org/4f46e5/raghvandrasingh111-sys"
-                alt="GitHub contribution calendar for Raghavendra Singh"
-                width={663}
-                height={104}
-                unoptimized
-                className="mx-auto min-w-[663px] max-w-full"
-              />
-            </div>
+            <ContributionGraph />
           </motion.div>
 
           <motion.div
