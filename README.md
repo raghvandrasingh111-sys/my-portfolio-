@@ -1,7 +1,6 @@
-# My Portfolio Website - Overview 🚀
+# My Portfolio Website
 
-This repository contains the open-source version of my personal portfolio website.  
-Feel free to explore the code and use it for learning and inspiration.
+Personal portfolio of Raghavendra Singh, Co-Founder & CTO at inheriq.in, full-stack developer, and AI builder. The homepage is a responsive HTML, CSS, and JavaScript experience served and built with Vite.
 
 ---
 
@@ -23,19 +22,20 @@ Build your own version — don’t just copy.
 
 ---
 
-## 🛠️ Instructions
+## 🛠️ Development
 
-I have modified the GSAP Club plugins using trial versions.  
-⚠️ Note: Trial plugins cannot be used for production or hosting.
+- `npm ci` installs the locked dependencies.
+- `npm run dev` starts the local Vite development server.
+- `npm run build` type-checks the retained React sources and builds the production homepage.
+- `npm run preview` serves the production build locally.
 
-For official GSAP Club plugins, refer here:  
-https://gsap.com/docs/v3/Installation/
+The homepage uses semantic HTML, responsive CSS, a reduced-motion-aware animated hero, and structured metadata for search engines. Legacy React components remain in `src/` but are not the active homepage.
 
 ---
 
 ## ⚙️ Tech Stack
 
-React • TypeScript • GSAP • Three.js • WebGL • HTML • CSS • JavaScript
+HTML • CSS • JavaScript • Vite • TypeScript (retained React sources)
 
 ---
 
@@ -53,13 +53,8 @@ Any usage, extraction, or redistribution of that avatar from my live website is 
 
 ---
 
-![Protfolio-Preview](https://github.com/user-attachments/assets/3c4557e7-6392-4928-b8a9-7b2476ef4edd)
-
----
-
 ## 📄 License
 
 This project is licensed under the Personal Portfolio License (PPL) v1.0.
 
 See the LICENSE file for full details
-
