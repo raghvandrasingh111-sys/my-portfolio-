@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="43" y1="34" x2="1110" y2="681" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38251D"/>
+      <stop offset=".52" stop-color="#171A26"/>
+      <stop offset="1" stop-color="#171522"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="321" y1="204" x2="868" y2="559" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6D59A"/>
+      <stop offset="1" stop-color="#B76A42"/>
+    </linearGradient>
+    <linearGradient id="cloth" x1="350" y1="287" x2="538" y2="545" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E9B574"/>
+      <stop offset="1" stop-color="#9D4D3D"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v675H0z"/>
+  <circle cx="1010" cy="102" r="270" fill="#BA784C" fill-opacity=".13"/>
+  <circle cx="170" cy="597" r="260" fill="#E2AD77" fill-opacity=".09"/>
+  <path d="M0 548c221-38 450-29 690 0 210 25 351 24 510-9v136H0V548Z" fill="#0D111B" fill-opacity=".75"/>
+  <rect x="137" y="116" width="926" height="421" rx="28" fill="#181922" stroke="#CDAA78" stroke-opacity=".24"/>
+  <text x="183" y="174" fill="#F7E9D2" font-family="Georgia,serif" font-size="34" letter-spacing="2">BENAM</text>
+  <text x="184" y="201" fill="#C8A77E" font-family="Arial,sans-serif" font-size="10" letter-spacing="4">OBJECTS WITH A STORY</text>
+  <path d="M184 224h832" stroke="#B89A76" stroke-opacity=".35"/>
+  <text x="191" y="287" fill="#F5EBDD" font-family="Georgia,serif" font-size="30">Made with meaning.</text>
+  <text x="191" y="316" fill="#C9B9A5" font-family="Arial,sans-serif" font-size="14">Handmade · Cultural · Considered</text>
+  <rect x="191" y="345" width="136" height="38" rx="19" fill="#D0A168"/>
+  <text x="218" y="369" fill="#221A16" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="1">DISCOVER BENAM</text>
+  <ellipse cx="760" cy="518" rx="247" ry="30" fill="#050609" fill-opacity=".55"/>
+  <path d="M646 500c8-39 2-68-12-103-11-27 2-53 42-59 33-5 70 9 72 40 2 29-16 52-18 122h-84Z" fill="url(#gold)"/>
+  <path d="M677 338c1-19 14-29 36-29 22 0 34 11 35 29h-71Z" fill="#D9B37C"/>
+  <path d="M686 351c17 12 41 12 59 0" stroke="#81523F" stroke-opacity=".7" stroke-width="4"/>
+  <path d="M786 500c4-37-4-64-21-89-17-25-11-46 20-58 30-11 59 2 58 27-1 29-17 50-15 120h-42Z" fill="#6E9383"/>
+  <path d="M793 355c16 9 34 9 49 0" stroke="#D6D4B2" stroke-opacity=".7" stroke-width="4"/>
+  <path d="M822 372c-10 24-6 42 7 61" stroke="#D6D4B2" stroke-opacity=".5" stroke-width="3"/>
+  <path d="M484 501c19-51 29-96 40-142 3-11 19-13 23 0 13 48 20 88 40 142H484Z" fill="url(#cloth)"/>
+  <path d="M506 397c27 15 56 14 80-3m-90 39c36 17 69 15 100-6m-96 39c33 12 63 11 91-4" stroke="#F5D9A7" stroke-opacity=".65" stroke-width="5"/>
+  <path d="M218 438h204" stroke="#CDAA78" stroke-opacity=".45"/>
+  <text x="218" y="465" fill="#D8C7B3" font-family="Arial,sans-serif" font-size="11" letter-spacing="2">A MARKETPLACE FOR CRAFT &amp; CULTURE</text>
+  <text x="808" y="590" fill="#C8A77E" font-family="Arial,sans-serif" font-size="12" letter-spacing="3">A MORE THOUGHTFUL KIND OF COMMERCE</text>
+</svg>

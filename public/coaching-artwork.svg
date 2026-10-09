@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="55" y1="30" x2="1122" y2="656" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172649"/>
+      <stop offset="1" stop-color="#131A2E"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="375" y1="120" x2="864" y2="561" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25395F"/>
+      <stop offset="1" stop-color="#1A2846"/>
+    </linearGradient>
+    <linearGradient id="book" x1="235" y1="396" x2="1000" y2="544" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#52D3BD"/>
+      <stop offset="1" stop-color="#698DFF"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v675H0z"/>
+  <circle cx="1080" cy="75" r="240" fill="#6378E7" fill-opacity=".12"/>
+  <circle cx="145" cy="600" r="270" fill="#35C7AE" fill-opacity=".08"/>
+  <rect x="113" y="91" width="974" height="481" rx="27" fill="#0D1425" fill-opacity=".58"/>
+  <rect x="153" y="125" width="894" height="388" rx="20" fill="url(#panel)" stroke="#91A9D6" stroke-opacity=".34" stroke-width="2"/>
+  <rect x="153" y="125" width="894" height="54" rx="20" fill="#EAF0FF"/>
+  <path d="M153 159h894v20H153z" fill="#EAF0FF"/>
+  <circle cx="181" cy="151" r="6" fill="#F37575"/>
+  <circle cx="202" cy="151" r="6" fill="#EDC36E"/>
+  <circle cx="223" cy="151" r="6" fill="#68C998"/>
+  <rect x="252" y="143" width="142" height="16" rx="8" fill="#D7DEEF"/>
+  <text x="204" y="224" fill="#F5F7FF" font-family="Arial,sans-serif" font-size="14" letter-spacing="3">LEARN WITH CONFIDENCE</text>
+  <text x="204" y="271" fill="#FFF" font-family="Georgia,serif" font-size="34" font-weight="700">Make your next goal</text>
+  <text x="204" y="312" fill="#FFF" font-family="Georgia,serif" font-size="34" font-weight="700">your best achievement.</text>
+  <text x="206" y="346" fill="#B9C8E4" font-family="Arial,sans-serif" font-size="14">Expert faculty. Focused courses. A path made for you.</text>
+  <rect x="205" y="374" width="143" height="42" rx="21" fill="url(#book)"/>
+  <text x="230" y="401" fill="#101D33" font-family="Arial,sans-serif" font-size="12" font-weight="700">EXPLORE COURSES</text>
+  <rect x="697" y="221" width="278" height="238" rx="17" fill="#192640" stroke="#60769D" stroke-opacity=".45"/>
+  <rect x="715" y="239" width="242" height="104" rx="12" fill="#324C77"/>
+  <path d="M737 322h198m-177-19h155m-128-19h101m-82-19h63" stroke="#AFC2E5" stroke-linecap="round" stroke-width="7"/>
+  <circle cx="758" cy="377" r="18" fill="#5ACCB5"/>
+  <path d="M750 377h16m-8-8v16" stroke="#14243B" stroke-linecap="round" stroke-width="3"/>
+  <text x="788" y="373" fill="#F5F7FF" font-family="Arial,sans-serif" font-size="13" font-weight="700">Courses for every ambition</text>
+  <text x="788" y="394" fill="#AAB9D4" font-family="Arial,sans-serif" font-size="11">Learn at your own pace</text>
+  <rect x="715" y="416" width="110" height="26" rx="13" fill="#334C72"/>
+  <rect x="835" y="416" width="122" height="26" rx="13" fill="#334C72"/>
+  <path d="M325 542c91-32 163-42 275-30 106 11 177 5 274-13l7 80H316l9-37Z" fill="url(#book)"/>
+  <path d="M345 553c97-28 156-30 255-19 92 10 164 6 257-12" stroke="#E6F8FF" stroke-opacity=".6" stroke-width="3"/>
+  <text x="351" y="585" fill="#0F2038" font-family="Arial,sans-serif" font-size="12" font-weight="700" letter-spacing="3">COURSES · FACULTY · ENQUIRIES</text>
+</svg>

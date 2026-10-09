@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" fill="none">
+  <defs>
+    <linearGradient id="sky" x1="600" y1="0" x2="600" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172C50"/>
+      <stop offset=".48" stop-color="#D67B63"/>
+      <stop offset="1" stop-color="#F3C17C"/>
+    </linearGradient>
+    <linearGradient id="river" x1="600" y1="361" x2="600" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4B718D"/>
+      <stop offset="1" stop-color="#192E4A"/>
+    </linearGradient>
+    <linearGradient id="temple" x1="600" y1="210" x2="600" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D09A"/>
+      <stop offset="1" stop-color="#B36B49"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v675H0z"/>
+  <circle cx="920" cy="185" r="80" fill="#FFDBA1" fill-opacity=".85"/>
+  <circle cx="920" cy="185" r="123" fill="#FFDFAF" fill-opacity=".13"/>
+  <path d="M0 364c112-27 187-12 280 0 127 17 197-31 330-7 101 18 171 28 281 7 99-18 204-16 309 8v303H0V364Z" fill="url(#river)"/>
+  <path d="M0 397c172 15 280 7 432-3m58 35c167-16 300 13 455-7m-730 69c168 17 278-12 417-3m92 40c170-14 291 13 476-9" stroke="#9FC1CA" stroke-opacity=".42" stroke-width="3"/>
+  <path d="M403 512V366h394v146H403Z" fill="url(#temple)"/>
+  <path d="M455 366c4-54 46-83 100-91 5-47 28-82 45-103 17 21 40 56 45 103 54 8 96 37 100 91H455Z" fill="url(#temple)"/>
+  <path d="M526 273c11-44 33-74 74-101 41 27 63 57 74 101-40-18-108-18-148 0Z" fill="#E6B67C"/>
+  <path d="M600 142v-33m-15 18h30m-15-32v28" stroke="#FFE5AD" stroke-linecap="round" stroke-width="5"/>
+  <path d="M480 384h240v16H480zm17 25h206v12H497z" fill="#8D5444" fill-opacity=".7"/>
+  <path d="M485 366v146m230-146v146M531 367v145m138-145v145" stroke="#74483F" stroke-opacity=".6" stroke-width="8"/>
+  <path d="M438 512h325l54 43H380l58-43Z" fill="#F2D1A0"/>
+  <path d="M355 555h494l43 34H312l43-34Z" fill="#C7845D"/>
+  <path d="M279 589h644l56 43H223l56-43Z" fill="#E4B886"/>
+  <path d="M0 520c116-18 199-16 291 6v149H0V520Zm909 2c101-20 194-22 291-1v154H909V522Z" fill="#122442" fill-opacity=".85"/>
+  <path d="M100 521V427l25-36 24 36v94m-69 0v-49l45-23 46 23v49m-81-22h70" stroke="#C69264" stroke-width="6"/>
+  <path d="M1008 522v-86l24-36 25 36v86m-73 0v-45l48-28 47 28v45m-83-20h70" stroke="#C69264" stroke-width="6"/>
+  <text x="75" y="103" fill="#FFF5E7" font-family="Georgia,serif" font-size="39" letter-spacing="2">RAM KASHI YATRA</text>
+  <text x="79" y="135" fill="#F9D8A6" font-family="Arial,sans-serif" font-size="13" letter-spacing="4">A JOURNEY THROUGH THE SACRED CITY</text>
+  <text x="79" y="184" fill="#FFF8EC" font-family="Georgia,serif" font-size="23">Plan your pilgrimage with care.</text>
+</svg>
