@@ -110,8 +110,8 @@ export default function ProjectDetails({ project }: Props) {
                 </motion.a>
               )}
               <a
-                href="/resume.pdf"
-                download="Raghavendra-Singh-Resume.pdf"
+                href="/raghavendra%20singh%20resume.pdf"
+                download="raghavendra singh resume.pdf"
                 className="btn-secondary flex items-center gap-2 text-sm"
               >
                 <FileText size={16} />

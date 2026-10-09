@@ -169,8 +169,8 @@ export default function Navbar() {
                 LinkedIn
               </a>
               <motion.a
-                href="/resume.pdf"
-                download="Raghavendra-Singh-Resume.pdf"
+                href="/raghavendra%20singh%20resume.pdf"
+                download="raghavendra singh resume.pdf"
                 className="btn-primary text-xs py-2 px-4 flex items-center gap-1.5"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -289,8 +289,8 @@ export default function Navbar() {
               {/* Drawer Footer CTA */}
               <div className="p-5 border-t border-glass-border bg-surface/50">
                 <a
-                  href="/resume.pdf"
-                  download="Raghavendra-Singh-Resume.pdf"
+                  href="/raghavendra%20singh%20resume.pdf"
+                  download="raghavendra singh resume.pdf"
                   className="btn-primary w-full flex items-center justify-center gap-2 text-sm py-3"
                   onClick={() => setIsMobileOpen(false)}
                 >

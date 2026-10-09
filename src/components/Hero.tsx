@@ -134,8 +134,8 @@ export default function Hero() {
                 <span>Contact Me</span>
               </motion.button>
               <a
-                href="/resume.pdf"
-                download="Raghavendra-Singh-Resume.pdf"
+                href="/raghavendra%20singh%20resume.pdf"
+                download="raghavendra singh resume.pdf"
                 className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base font-medium px-6 py-3.5 rounded-full border border-glass-border hover:border-accent-primary/40"
               >
                 <Download size={17} />
