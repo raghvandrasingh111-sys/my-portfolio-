@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight, Download, Mail, Sparkles } from "lucide-react";
 import AnimatedBackground from "./AnimatedBackground";
@@ -99,25 +98,21 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 pt-2 w-full sm:w-auto">
-              <motion.button
+              <button
                 onClick={() => handleScrollTo("projects")}
-                className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base font-medium px-7 py-3.5 rounded-full shadow-lg shadow-accent-primary/25 cursor-pointer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                className="btn-primary w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base font-medium px-7 py-3.5 rounded-full shadow-lg shadow-accent-primary/25 cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95"
               >
                 <span>View Projects</span>
                 <ArrowRight size={18} />
-              </motion.button>
+              </button>
 
-              <motion.button
+              <button
                 onClick={() => handleScrollTo("contact")}
-                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base font-medium px-7 py-3.5 rounded-full border border-glass-border hover:border-accent-cyan/40 cursor-pointer"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                className="btn-secondary w-full sm:w-auto flex items-center justify-center gap-2 text-sm sm:text-base font-medium px-7 py-3.5 rounded-full border border-glass-border hover:border-accent-cyan/40 cursor-pointer transition-transform duration-200 hover:scale-105 active:scale-95"
               >
                 <Mail size={18} className="text-accent-cyan" />
                 <span>Contact Me</span>
-              </motion.button>
+              </button>
               <a
                 href="/raghavendra%20singh%20resume.pdf"
                 download="raghavendra singh resume.pdf"

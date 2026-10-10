@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface SectionHeadingProps {
   title: string;
   subtitle?: string;
@@ -14,13 +10,7 @@ export default function SectionHeading({
   align = "center",
 }: SectionHeadingProps) {
   return (
-    <motion.div
-      className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <div className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}>
       <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-primary mb-4">
         {title}
       </h2>
@@ -34,6 +24,6 @@ export default function SectionHeading({
           align === "center" ? "mx-auto" : ""
         }`}
       />
-    </motion.div>
+    </div>
   );
 }
