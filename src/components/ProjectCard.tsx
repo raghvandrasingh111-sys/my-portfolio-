@@ -37,8 +37,8 @@ export default function ProjectCard({
                 src={project.image}
                 alt={`${project.title} Dashboard Preview`}
                 fill
-                unoptimized
-                sizes="(max-width: 1024px) 100vw, 55vw"
+                quality={80}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 650px"
                 className="object-cover object-top group-hover/img:scale-105 transition-transform duration-700"
               />
             ) : (
@@ -93,6 +93,7 @@ export default function ProjectCard({
                 <Link
                   href={`/projects/${project.slug}`}
                   className="p-3.5 rounded-xl bg-surface border border-glass-border text-text-primary hover:text-accent-emerald transition-colors shadow-lg"
+                  aria-label={`Read case study for ${project.title}`}
                 >
                   <FileText size={20} />
                 </Link>
@@ -188,8 +189,8 @@ export default function ProjectCard({
                 src={project.image}
                 alt={project.title}
                 fill
-                unoptimized
-                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={80}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 400px"
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             ) : (

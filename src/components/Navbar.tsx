@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { Download, Menu, X } from "lucide-react";
 import Image from "next/image";
 
@@ -26,15 +26,29 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const isScrolledRef = useRef(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
-      setScrollProgress(progress);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const nowScrolled = window.scrollY > 30;
+          if (nowScrolled !== isScrolledRef.current) {
+            isScrolledRef.current = nowScrolled;
+            setIsScrolled(nowScrolled);
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -86,8 +100,8 @@ export default function Navbar() {
     <>
       {/* Scroll Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 h-[2px] scroll-progress z-[60]"
-        style={{ width: `${scrollProgress}%` }}
+        className="fixed top-0 left-0 right-0 h-[2px] scroll-progress z-[60] origin-left"
+        style={{ scaleX }}
       />
 
       <motion.nav

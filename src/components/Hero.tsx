@@ -164,8 +164,8 @@ export default function Hero() {
                   alt="Portrait of Raghavendra Singh"
                   fill
                   priority
-                  unoptimized
-                  sizes="(max-width: 1024px) 80vw, 400px"
+                  quality={80}
+                  sizes="(max-width: 640px) 345px, (max-width: 1024px) 384px, 400px"
                   className="object-cover object-top"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/90 via-background/35 to-transparent px-6 pb-6 pt-20">

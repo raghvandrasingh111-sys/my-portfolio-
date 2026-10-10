@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useMemo, useCallback } from "react";
 
 interface ContributionDay {
   date: string;
@@ -45,10 +45,10 @@ function getLocalDate(date: Date) {
 }
 
 export default function ContributionGraph() {
-  const [contributions, setContributions] = useState<ContributionDay[] | null>(
-    null,
-  );
+  const [contributions, setContributions] = useState<ContributionDay[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; text: string } | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -58,7 +58,7 @@ export default function ContributionGraph() {
       try {
         const response = await fetch(
           `https://github-contributions-api.jogruber.de/v4/raghvandrasingh111-sys?y=${year}`,
-          { signal: controller.signal, cache: "no-store" },
+          { signal: controller.signal, cache: "default" },
         );
 
         if (!response.ok) {
@@ -91,6 +91,138 @@ export default function ContributionGraph() {
     return () => controller.abort();
   }, []);
 
+  const year = new Date().getFullYear();
+  const firstDay = useMemo(() => new Date(Date.UTC(year, 0, 1)), [year]);
+  const firstWeekday = useMemo(() => firstDay.getUTCDay(), [firstDay]);
+  const today = useMemo(() => getLocalDate(new Date()), []);
+
+  const { weeks, months, contributionTotal } = useMemo(() => {
+    if (!contributions) {
+      return { weeks: [], months: [], contributionTotal: 0 };
+    }
+
+    const weekCount = Math.ceil((firstWeekday + contributions.length) / 7) || 1;
+    const computedWeeks: ContributionWeek[] = Array.from({ length: weekCount }, () => ({
+      days: Array(7).fill(null),
+    }));
+
+    for (const contribution of contributions) {
+      const date = new Date(`${contribution.date}T00:00:00Z`);
+      const daysSinceYearStart = Math.round(
+        (date.getTime() - firstDay.getTime()) / 86_400_000,
+      );
+      const position = firstWeekday + daysSinceYearStart;
+      computedWeeks[Math.floor(position / 7)].days[position % 7] = contribution;
+    }
+
+    const computedMonths = Array.from({ length: 12 }, (_, month) => {
+      const date = new Date(Date.UTC(year, month, 1));
+      const dayOfYear = Math.floor(
+        (date.getTime() - firstDay.getTime()) / 86_400_000,
+      );
+
+      return {
+        label: monthFormatter.format(date),
+        week: Math.floor((firstWeekday + dayOfYear) / 7),
+        date: getLocalDate(new Date(year, month, 1)),
+      };
+    }).filter((month) => month.date <= today);
+
+    const total = contributions.reduce((sum, day) => sum + day.count, 0);
+
+    return {
+      weeks: computedWeeks,
+      months: computedMonths,
+      contributionTotal: total,
+    };
+  }, [contributions, firstDay, firstWeekday, today, year]);
+
+  const CELL_SIZE = 11;
+  const GAP = 3;
+  const STEP = CELL_SIZE + GAP;
+  const RADIUS = 3;
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || !weeks.length) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const dpr = typeof window !== "undefined" ? window.devicePixelRatio || 2 : 2;
+    const width = weeks.length * STEP - GAP;
+    const height = 7 * STEP - GAP;
+
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+
+    ctx.scale(dpr, dpr);
+    ctx.clearRect(0, 0, width, height);
+
+    weeks.forEach((week, wIdx) => {
+      week.days.forEach((day, dIdx) => {
+        const x = wIdx * STEP;
+        const y = dIdx * STEP;
+
+        if (day) {
+          ctx.fillStyle = levelColors[Math.min(day.level, levelColors.length - 1)];
+          ctx.beginPath();
+          if (typeof ctx.roundRect === "function") {
+            ctx.roundRect(x, y, CELL_SIZE, CELL_SIZE, RADIUS);
+          } else {
+            ctx.rect(x, y, CELL_SIZE, CELL_SIZE);
+          }
+          ctx.fill();
+
+          // Subtle border
+          ctx.strokeStyle = "rgba(255, 255, 255, 0.05)";
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      });
+    });
+  }, [weeks, STEP]);
+
+  const handlePointer = useCallback(
+    (e: React.PointerEvent<HTMLCanvasElement>) => {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const wIdx = Math.floor(x / STEP);
+      const dIdx = Math.floor(y / STEP);
+
+      if (
+        wIdx >= 0 &&
+        wIdx < weeks.length &&
+        dIdx >= 0 &&
+        dIdx < 7 &&
+        weeks[wIdx]?.days[dIdx]
+      ) {
+        const day = weeks[wIdx].days[dIdx];
+        if (day) {
+          setTooltip({
+            x: Math.min(x, rect.width - 130),
+            y: Math.max(0, y - 10),
+            text: `${day.date}: ${day.count} ${day.count === 1 ? "contribution" : "contributions"}`,
+          });
+          return;
+        }
+      }
+      setTooltip(null);
+    },
+    [weeks, STEP],
+  );
+
+  const handlePointerLeave = useCallback(() => {
+    setTooltip(null);
+  }, []);
+
   if (error) {
     return (
       <p role="alert" className="text-sm text-text-secondary">
@@ -115,47 +247,14 @@ export default function ContributionGraph() {
     );
   }
 
-  const year = new Date().getFullYear();
-  const firstDay = new Date(Date.UTC(year, 0, 1));
-  const firstWeekday = firstDay.getUTCDay();
-  const today = getLocalDate(new Date());
-  const weekCount =
-    Math.ceil((firstWeekday + contributions.length) / 7) || 1;
-  const weeks: ContributionWeek[] = Array.from({ length: weekCount }, () => ({
-    days: Array(7).fill(null),
-  }));
-
-  for (const contribution of contributions) {
-    const date = new Date(`${contribution.date}T00:00:00Z`);
-    const daysSinceYearStart = Math.round(
-      (date.getTime() - firstDay.getTime()) / 86_400_000,
-    );
-    const position = firstWeekday + daysSinceYearStart;
-    weeks[Math.floor(position / 7)].days[position % 7] = contribution;
-  }
-
-  const months = Array.from({ length: 12 }, (_, month) => {
-    const date = new Date(Date.UTC(year, month, 1));
-    const dayOfYear = Math.floor(
-      (date.getTime() - firstDay.getTime()) / 86_400_000,
-    );
-
-    return {
-      label: monthFormatter.format(date),
-      week: Math.floor((firstWeekday + dayOfYear) / 7),
-      date: getLocalDate(new Date(year, month, 1)),
-    };
-  }).filter((month) => month.date <= today);
-
-  const contributionTotal = contributions.reduce(
-    (total, day) => total + day.count,
-    0,
-  );
-
   return (
     <div>
-      <div className="overflow-x-auto pb-2" aria-label={`Contributions from January ${year} through today`}>
+      <div
+        className="overflow-x-auto pb-2"
+        aria-label={`Contributions from January ${year} through today`}
+      >
         <div className="w-max min-w-full">
+          {/* Months Header */}
           <div
             aria-hidden="true"
             className="grid h-5 text-[11px] text-text-muted"
@@ -174,7 +273,8 @@ export default function ContributionGraph() {
             ))}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 relative">
+            {/* Weekday Labels */}
             <div
               aria-hidden="true"
               className="grid shrink-0 grid-rows-7 gap-[3px] text-[10px] leading-[11px] text-text-muted"
@@ -186,35 +286,24 @@ export default function ContributionGraph() {
               ))}
             </div>
 
-            <div
-              role="grid"
-              aria-label={`Daily GitHub contributions from January 1, ${year} through ${today}`}
-              className="grid grid-rows-7 gap-[3px]"
-              style={{ gridAutoFlow: "column", gridAutoColumns: "11px" }}
-            >
-              {weeks.flatMap((week, weekIndex) =>
-                week.days.map((day, weekdayIndex) => (
-                  <span
-                    key={`${weekIndex}-${weekdayIndex}`}
-                    role="gridcell"
-                    aria-label={
-                      day
-                        ? `${day.date}: ${day.count} contributions`
-                        : "Before January 1"
-                    }
-                    title={
-                      day
-                        ? `${day.date}: ${day.count} contributions`
-                        : undefined
-                    }
-                    className="h-[11px] w-[11px] rounded-[3px] ring-1 ring-inset ring-white/5"
-                    style={{
-                      backgroundColor: day
-                        ? levelColors[Math.min(day.level, levelColors.length - 1)]
-                        : "transparent",
-                    }}
-                  />
-                )),
+            {/* Canvas heatmap (Replaces 365+ DOM elements with 1 high-performance canvas) */}
+            <div className="relative">
+              <canvas
+                ref={canvasRef}
+                role="img"
+                aria-label={`Daily GitHub contributions from January 1, ${year} through ${today}: ${contributionTotal} total contributions`}
+                onPointerMove={handlePointer}
+                onPointerLeave={handlePointerLeave}
+                className="cursor-pointer block"
+              />
+
+              {tooltip && (
+                <div
+                  className="pointer-events-none absolute z-20 px-2.5 py-1 text-[11px] font-mono bg-surface border border-glass-border text-text-primary rounded-md shadow-xl whitespace-nowrap transform -translate-y-full"
+                  style={{ left: `${tooltip.x}px`, top: `${tooltip.y}px` }}
+                >
+                  {tooltip.text}
+                </div>
               )}
             </div>
           </div>
@@ -223,9 +312,13 @@ export default function ContributionGraph() {
 
       <div className="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs text-text-muted">
         <span>
-          {contributionTotal} contributions · Jan {year} – {monthFormatter.format(new Date())} {year}
+          {contributionTotal} contributions · Jan {year} –{" "}
+          {monthFormatter.format(new Date())} {year}
         </span>
-        <span className="inline-flex items-center gap-1.5" aria-label="Contribution intensity legend">
+        <span
+          className="inline-flex items-center gap-1.5"
+          aria-label="Contribution intensity legend"
+        >
           Less
           {levelColors.map((color) => (
             <span

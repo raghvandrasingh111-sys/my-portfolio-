@@ -134,7 +134,7 @@ export default function ProjectDetails({ project }: Props) {
               src={project.image}
               alt={`${project.title} project preview`}
               fill
-              unoptimized
+              quality={80}
               sizes="(max-width: 768px) 100vw, 896px"
               className="object-cover object-top"
             />

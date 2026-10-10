@@ -10,8 +10,8 @@
   --color-glass-hover: rgba(255, 255, 255, 0.06);
 
   --color-text-primary: #f0f0f5;
-  --color-text-secondary: #8888a0;
-  --color-text-muted: #555570;
+  --color-text-secondary: #a3a3be;
+  --color-text-muted: #9494ad;
 
   --color-accent-primary: #6366f1;
   --color-accent-secondary: #8b5cf6;
@@ -171,9 +171,18 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(90px);
   opacity: 0.15;
   pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@media (max-width: 640px) {
+  .blob {
+    filter: blur(60px);
+    opacity: 0.12;
+  }
 }
 
 .blob-purple {

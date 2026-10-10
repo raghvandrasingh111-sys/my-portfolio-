@@ -1,14 +1,24 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import ProjectGrid from "@/components/ProjectGrid";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import SkillsGrid from "@/components/SkillsGrid";
-import Achievements from "@/components/Achievements";
-import Certifications from "@/components/Certifications";
-import GitHubStats from "@/components/GitHubStats";
-import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
+
+const Achievements = dynamic(() => import("@/components/Achievements"), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+});
+const Certifications = dynamic(() => import("@/components/Certifications"), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+});
+const GitHubStats = dynamic(() => import("@/components/GitHubStats"), {
+  loading: () => <div className="py-24" aria-hidden="true" />,
+});
+const ContactCTA = dynamic(() => import("@/components/ContactCTA"), {
+  loading: () => <div className="py-20" aria-hidden="true" />,
+});
 
 export default function Home() {
   return (

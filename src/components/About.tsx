@@ -119,7 +119,7 @@ export default function About() {
                   <Sparkles size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-text-primary">Co-Founder</h4>
+                  <p className="text-sm font-bold text-text-primary">Co-Founder</p>
                   <p className="text-xs text-accent-primary font-medium">Inheriq</p>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function About() {
                   <Cpu size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-text-primary">CTO</h4>
+                  <p className="text-sm font-bold text-text-primary">CTO</p>
                   <p className="text-xs text-accent-cyan font-medium">Inheriq</p>
                 </div>
               </div>
@@ -139,7 +139,7 @@ export default function About() {
                   <Layers size={18} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-text-primary">Full Stack</h4>
+                  <p className="text-sm font-bold text-text-primary">Full Stack</p>
                   <p className="text-xs text-accent-emerald font-medium">Web & Mobile</p>
                 </div>
               </div>
@@ -283,10 +283,10 @@ export default function About() {
 
             {/* Highlight Banner */}
             <div className="glass-card rounded-2xl p-6 border-l-4 border-accent-primary bg-gradient-to-r from-accent-primary/10 via-transparent to-transparent space-y-3">
-              <h4 className="text-sm font-bold text-text-primary flex items-center gap-2">
+              <h3 className="text-sm font-bold text-text-primary flex items-center gap-2">
                 <span className="w-2.5 h-2.5 rounded-full bg-accent-emerald animate-ping" />
                 <span>Current Focus @ Inheriq</span>
-              </h4>
+              </h3>
               <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
                 Building a subscription platform of specialised AI agents for HR, Sales, Marketing, Support, and Finance, with regional Indian language support and Hindi-English code-switching.
               </p>

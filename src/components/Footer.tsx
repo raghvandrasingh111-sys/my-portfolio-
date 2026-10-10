@@ -33,7 +33,7 @@ export default function Footer() {
             <p className="font-medium text-text-secondary">
               &copy; 2026 Raghavendra Singh. All rights reserved.
             </p>
-            <p>Built with Next.js + Tailwind CSS</p>
+            <p className="text-text-secondary">Built with Next.js + Tailwind CSS</p>
           </div>
         </div>
       </div>
