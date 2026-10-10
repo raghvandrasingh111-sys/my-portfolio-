@@ -153,6 +153,7 @@ export default function ProjectCard({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary text-xs font-medium py-2.5 px-4 flex items-center gap-2"
+                aria-label={`${githubLabel} for ${project.title}`}
               >
                 <GithubIcon size={14} />
                 <span>{githubLabel}</span>
@@ -163,6 +164,7 @@ export default function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-primary text-xs font-medium py-2.5 px-5 flex items-center gap-2"
+                  aria-label={`View live project for ${project.title}`}
                 >
                   <span>View Live Project</span>
                   <ExternalLink size={14} />
@@ -172,6 +174,7 @@ export default function ProjectCard({
                 <Link
                   href={`/projects/${project.slug}`}
                   className="btn-secondary text-xs font-medium py-2.5 px-4 flex items-center gap-2"
+                  aria-label={`Read case study for ${project.title}`}
                 >
                   <FileText size={14} />
                   <span>Case Study</span>
@@ -233,6 +236,7 @@ export default function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-medium text-text-secondary hover:text-accent-primary transition-colors flex items-center gap-1"
+                  aria-label={`${githubLabel} for ${project.title}`}
                 >
                   <GithubIcon size={13} />
                   <span>{githubLabel}</span>
@@ -243,6 +247,7 @@ export default function ProjectCard({
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-xs font-medium text-text-secondary hover:text-accent-primary transition-colors flex items-center gap-1"
+                    aria-label={`View live project for ${project.title}`}
                   >
                     <span>Live Project</span>
                     <ExternalLink size={13} />
@@ -252,6 +257,7 @@ export default function ProjectCard({
                   <Link
                     href={`/projects/${project.slug}`}
                     className="text-xs font-medium text-accent-cyan hover:text-accent-primary transition-colors flex items-center gap-1"
+                    aria-label={`Read case study for ${project.title}`}
                   >
                     <span>Read Case Study</span>
                     <FileText size={13} />
